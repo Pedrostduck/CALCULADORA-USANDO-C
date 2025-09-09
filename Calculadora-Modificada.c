@@ -8,7 +8,7 @@ int main() {
     
     printf("Selecione o operador:\n");
     printf("Soma (+), Subtração (-), Multiplicação (*), Divisão (/)\n");
-    printf("Potência (^), Raiz quadrada (r), Módulo (%%)\n");
+    printf("Potência (^), Raiz quadrada (r)\n");
     
     scanf(" %c", &operador);
 
@@ -20,7 +20,7 @@ int main() {
 
     printf("Digite o primeiro número: ");
     if (scanf("%lf", &resultado) != 1) {
-        printf("Entrada inválida para o primeiro número.\n"
+        printf("Entrada inválida para o primeiro número.\n");
         return 1;
     }
 
@@ -49,31 +49,23 @@ int main() {
                     return 1;
                 }
                 break;
-            case '%':
-                if (num != 0) {
-                    resultado = (int)resultado % (int)num;
-                } else {
-                    printf("Divisão por zero no módulo não tem como, tente novamente burru.\n");
-                    return 1;
-                }
-                break;
             default:
-                printf("erro isso não é um operador, ou é um operador invalido.\n");
+                printf("Erro: operador inválido.\n");
                 return 1;
         }
     }
 
-    if (operador == 'r') {
+    if (operador == '0') {
         if (resultado >= 0) {
             resultado = sqrt(resultado); 
         } else {
-            printf("Raiz quadrada de número negativo é foda né, não tem como fazer isso, Tente Novamente.\n");
+            printf("Raiz quadrada de número negativo não tem como fazer isso. Tente novamente.\n");
             return 1;
         }
     } else if (operador == '^') {
         printf("Digite o segundo número (exponente): ");
         if (scanf("%lf", &num) != 1) {
-            printf("ERRO, Provavelmente vc colocou um caracter. Tente Novamente.\n");
+            printf("Erro, provavelmente você colocou um caractere. Tente novamente.\n");
             return 1;
         }
         resultado = pow(resultado, num);  
@@ -95,3 +87,7 @@ int main() {
 // A função pow() é usada para calcular a potência de um número. Ela recebe dois argumentos: a base e o expoente, e retorna a base elevada à potência do expoente. A sintaxe básica da função é:
 // O tipo de dado char é usado para armazenar caracteres individuais, como letras, números, símbolos e outros caracteres. Na realidade, char é um tipo inteiro de 1 byte (8 bits), mas ele é interpretado de maneira especial para representar caracteres.
 // O tipo de dado double é usado para armazenar números de ponto flutuante, ou seja, números que podem ter uma parte inteira e uma parte decimal. O double oferece precisão dupla em comparação com o tipo float (que é de precisão simples).
+
+
+
+
